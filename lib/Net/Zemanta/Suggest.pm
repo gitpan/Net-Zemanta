@@ -97,14 +97,25 @@ sub new {
 
 =item B<suggest()>
 
-	$suggestions = $zemanta->suggest( text )
+	$suggestions = $zemanta->suggest( text, PARAM => ... )
 
 Requests suggestions for the given text. Suggestions are returned as a tree
 of hash and list references that correspond to the returned JSON data
-structure.The most important elements are described bellow. For the full
+structure. The most important elements are described bellow. For the full
 reference see L<http://developer.zemanta.com>.
 
-Returns C<undef> on error.
+Optional parameters:
+
+=over 4
+
+=item  FREEBASE
+
+Set to 1 to include FreeBase (L<http://www.freebase.com>) GUIDs with in-text
+markup.
+
+=back
+
+C<suggest()> returns C<undef> on error.
 
 =over 8
 
@@ -153,13 +164,9 @@ elements:
 
 URLs of a large, medium and small version of the picture respectively.
 
-=item B<image_source>
+=item B<url_l_w>, B<url_l_h>, B<url_m_w>, B<url_m_h>, B<url_s_w>, B<url_s_h>
 
-URL of a web page where more information about image can be found.
-
-=item B<height>, B<width>
-
-Dimensions of the large image.
+Width and height of large, medium and small version of the picture respectively.
 
 =item B<license>
 
@@ -172,6 +179,10 @@ String containing description
 =item B<attribution>
 
 Attribution that must be posted together with the image.
+
+=item B<source_url>
+
+URL of a web page where more information about the image can be found.
 
 =back
 
@@ -217,6 +228,10 @@ Title of the resource.
 
 =back
 
+=item B<freebase_guid>
+
+FreeBase GUID (if C<suggest()> was called with FreeBase support enabled)
+
 =back
 
 =back
@@ -244,11 +259,14 @@ C<undef>.
 sub suggest {
 	my $self = shift;
 
-	my ($text) = @_;
+	my ($text, %options) = @_;
+
+	$options{'FREEBASE'} = 0 unless defined $options{'FREEBASE'};
 
 	my $text_utf8 = Encode::encode("utf8", $text);
 
-	return $self->execute( text => $text_utf8 );
+	return $self->execute( text     => $text_utf8,
+			       freebase => $options{'FREEBASE'} );
 }
 
 =head1 SEE ALSO

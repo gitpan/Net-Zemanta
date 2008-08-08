@@ -1,5 +1,10 @@
 Revision history for Perl extension Net::Zemanta.
 
+0.2  8 August 2008
+
+	- Update for the August version of Zemanta API.
+	- Support for "freebase" parameter to zemanta.suggest call
+
 0.1  11 July 2008
 
 	- initial release

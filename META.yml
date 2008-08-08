@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Net-Zemanta
-version:             0.1
+version:             0.2
 abstract:            Perl bindings for services provided by Zemanta
 license:             ~
 author:              
@@ -8,6 +8,7 @@ author:
 generated_by:        ExtUtils::MakeMaker version 6.42
 distribution_type:   module
 requires:     
+    JSON:                          2.00
     LWP:                           5.09
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.3.html
