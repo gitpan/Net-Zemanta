@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Net-Zemanta
-version:             0.2
+version:             0.3
 abstract:            Perl bindings for services provided by Zemanta
 license:             ~
 author:              

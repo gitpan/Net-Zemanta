@@ -1,7 +1,5 @@
 package Net::Zemanta::Suggest;
 
-=encoding utf8
-
 =head1 NAME
 
 Net::Zemanta::Suggest - Perl interface to Zemanta Suggest service
@@ -66,6 +64,12 @@ Acceptable parameters:
 
 The API key used for authentication with the service.
 
+=item  MARKUP_ONLY
+
+If set to true, a faster variant of the API call is made that only returns
+the markup element. Default is to provide everything (images, related articles,
+markup and tags).
+
 =item  USER_AGENT
 
 If supplied the value is prepended to this module's identification string 
@@ -85,7 +89,11 @@ sub new {
 	my $class 	= shift;
 	my %params	= @_;
 
-	$params{METHOD} = "zemanta.suggest";
+	if( $params{MARKUP_ONLY} ) {
+		$params{METHOD} = "zemanta.suggest_markup";
+	} else {
+		$params{METHOD} = "zemanta.suggest";
+	}
 
 	my $self = $class->SUPER::new(%params);
 
@@ -281,7 +289,7 @@ sub suggest {
 
 =head1 AUTHOR
 
-Tomaž Šolc E<lt>tomaz@zemanta.comE<gt>
+Tomaz Solc E<lt>tomaz@zemanta.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

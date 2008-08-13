@@ -1,5 +1,9 @@
 Revision history for Perl extension Net::Zemanta.
 
+0.3  13 August 2008
+
+	- Support for zemanta.suggest_markup API call.
+
 0.2  8 August 2008
 
 	- Update for the August version of Zemanta API.

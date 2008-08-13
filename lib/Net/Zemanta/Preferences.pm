@@ -1,7 +1,5 @@
 package Net::Zemanta::Preferences;
 
-=encoding utf8
-
 =head1 NAME
 
 Net::Zemanta::Preferences - Perl interface to Zemanta user preferences
@@ -111,7 +109,7 @@ sub get {
 
 =head1 AUTHOR
 
-Tomaž Šolc E<lt>tomaz@zemanta.comE<gt>
+Tomaz Solc E<lt>tomaz@zemanta.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
