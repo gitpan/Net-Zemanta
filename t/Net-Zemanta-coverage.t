@@ -1,11 +1,12 @@
 BEGIN {
-	eval 'use Test::Pod::Coverage tests => 1';
+	eval 'use Test::Pod::Coverage tests => 2';
 	if ($@) {
 		use Test;
-		plan tests => 1;
+		plan tests => 2;
 		skip('Test::Pod::Coverage not found');
 		exit(0);
 	}
 }
 
-pod_coverage_ok('Net::Zemanta');
+pod_coverage_ok('Net::Zemanta::Suggest');
+pod_coverage_ok('Net::Zemanta::Preferences');

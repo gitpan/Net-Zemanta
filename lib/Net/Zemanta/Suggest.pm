@@ -109,17 +109,28 @@ sub new {
 
 Requests suggestions for the given text. Suggestions are returned as a tree
 of hash and list references that correspond to the returned JSON data
-structure. The most important elements are described bellow. For the full
-reference see L<http://developer.zemanta.com>.
+structure. The most important parameters and result elements are described bellow.
+For the full reference see L<http://developer.zemanta.com>.
 
 Optional parameters:
 
 =over 4
 
-=item  FREEBASE
+=item  MARKUP_LIMIT
 
-Set to 1 to include FreeBase (L<http://www.freebase.com>) GUIDs with in-text
-markup.
+Number of in-text links to return (default is 10).
+
+=item  IMAGES_LIMIT
+
+Number of images to return (default is 24).
+
+=item  ARTICLES_LIMIT
+
+Number of related articles to return (default is 10).
+
+=item  IMAGE_MAX_W, IMAGE_MAX_H
+
+Maximum width and height of returned images respectively (default is 300 by 300).
 
 =back
 
@@ -236,10 +247,6 @@ Title of the resource.
 
 =back
 
-=item B<freebase_guid>
-
-FreeBase GUID (if C<suggest()> was called with FreeBase support enabled)
-
 =back
 
 =back
@@ -269,12 +276,15 @@ sub suggest {
 
 	my ($text, %options) = @_;
 
-	$options{'FREEBASE'} = 0 unless defined $options{'FREEBASE'};
+	my %lc_options;
+	while(my ($key, $value) = each %options) {
+		$lc_options{lc $key} = $value 
+	}
 
 	my $text_utf8 = Encode::encode("utf8", $text);
 
-	return $self->execute( text     => $text_utf8,
-			       freebase => $options{'FREEBASE'} );
+	return $self->execute(	text     => $text_utf8,
+				%lc_options );
 }
 
 =head1 SEE ALSO
