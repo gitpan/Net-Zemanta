@@ -1,4 +1,4 @@
-use Test::More tests => 6;
+use Test::More tests => 7;
 BEGIN { 
 	use_ok('Net::Zemanta::Suggest');
 	use_ok('Net::Zemanta::Preferences');
@@ -8,6 +8,10 @@ my $s = Net::Zemanta::Suggest->new();
 ok( ! $s );
 
 $s = Net::Zemanta::Suggest->new(APIKEY => "dummy");
+ok( $s );
+
+$s = Net::Zemanta::Suggest->new(APIKEY => "dummy",
+				MARKUP_ONLY => 1);
 ok( $s );
 
 $s = Net::Zemanta::Preferences->new();

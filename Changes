@@ -1,5 +1,9 @@
 Revision history for Perl extension Net::Zemanta.
 
+0.5  27 October 2009
+
+	- Don't fail unit tests if Test::Pod::Coverage isn't installed.
+
 0.4  22 October 2009
 
 	- Support for new optional zemanta.suggest parameters.

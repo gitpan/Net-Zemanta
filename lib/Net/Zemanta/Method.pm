@@ -8,7 +8,7 @@ use HTTP::Request::Common;
 use Encode;
 use JSON;
 
-our $VERSION = '0.4';
+our $VERSION = '0.5';
 
 my $SERVICE_TYPE = "rest";
 my $API_VERSION = "0.0";
