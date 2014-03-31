@@ -1,5 +1,9 @@
 Revision history for Perl extension Net::Zemanta.
 
+0.7  31 March 2014
+
+        - Make tests pass on Pod::Checker 1.70
+
 0.6  30 March 2014
 
 	- Add missing prerequisites.

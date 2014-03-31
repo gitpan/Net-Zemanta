@@ -36,13 +36,15 @@ Dependencies
 Contact
 =======
 
-Please contact the author in case of bugs, patches, etc. at tomaz@zemanta.com
+Please contact the author in case of bugs, patches, etc. at
+tomaz.solc@tablix.org
 
 
 License
 =======
 
 Copyright (C) 2008 by Zemanta ltd.
+Copyright (C) 2014 by Tomaz Solc
 
 This library is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself, either Perl version 5.8.7 or, at your option,

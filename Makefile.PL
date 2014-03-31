@@ -12,6 +12,8 @@ WriteMakefile(
 				'Pod::Checker'	=> '1.19'
 			},   
 
+	LICENSE		=> 'perl',
+
 	($] >= 5.005 ?
 		(ABSTRACT 	=> 'Perl bindings for services provided by Zemanta', 
 		 AUTHOR		=> 'Tomaz Solc <tomaz@zemanta.com>') : ()),

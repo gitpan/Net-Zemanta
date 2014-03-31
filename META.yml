@@ -1,10 +1,10 @@
 --- #YAML:1.0
 name:               Net-Zemanta
-version:            0.6
+version:            0.7
 abstract:           Perl bindings for services provided by Zemanta
 author:
     - Tomaz Solc <tomaz@zemanta.com>
-license:            unknown
+license:            perl
 distribution_type:  module
 configure_requires:
     ExtUtils::MakeMaker:  0
